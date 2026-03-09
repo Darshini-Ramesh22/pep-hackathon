@@ -45,7 +45,7 @@ class Strategist:
         """
         
         # Load strategist prompt
-        with open("prompts/strategist_prompt.txt", "r") as f:
+        with open("campaign_brain/prompts/strategist_prompt.txt", "r") as f:
             prompt_template = f.read()
             
         # Prepare trend summary
