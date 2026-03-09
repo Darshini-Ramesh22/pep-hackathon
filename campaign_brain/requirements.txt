@@ -23,6 +23,7 @@ plotly==5.24.1
 
 # UI (Streamlit for dashboard)
 streamlit==1.39.0
+Pillow>=10.0.0,<13.0.0
 
 # Additional utilities
 pydantic>=2.9.2
