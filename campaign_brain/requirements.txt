@@ -25,5 +25,5 @@ plotly==5.24.1
 streamlit==1.39.0
 
 # Additional utilities
-pydantic==2.9.2
-typing-extensions==4.12.2
+pydantic>=2.9.2
+typing-extensions>=4.12.2
