@@ -43,7 +43,7 @@ class Designer:
         """
         
         # Load designer prompt
-        with open("prompts/designer_prompt.txt", "r") as f:
+        with open("campaign_brain/prompts/designer_prompt.txt", "r") as f:
             prompt_template = f.read()
             
         # Prepare persona insights

@@ -41,7 +41,7 @@ class PersonaSimulator:
         """
         
         # Load persona prompt
-        with open("prompts/persona_prompt.txt", "r") as f:
+        with open("campaign_brain/prompts/persona_prompt.txt", "r") as f:
             prompt_template = f.read()
             
         # Prepare trend influences
