@@ -303,6 +303,31 @@ class Executor:
                 resources["additional_resources"] = []
             resources["additional_resources"].append(content)
     
+    def _normalize_list_fields(self, plan: Dict[str, Any]) -> Dict[str, Any]:
+        """Ensure all fields that should be lists are actually lists, not strings."""
+        # Normalize top-level list fields
+        for key in ("risks",):
+            val = plan.get(key)
+            if isinstance(val, str):
+                plan[key] = [item.strip() for item in val.split(",") if item.strip()]
+
+        # Normalize nested resource list fields
+        resources = plan.get("resources")
+        if isinstance(resources, dict):
+            for key in ("team_requirements", "budget_breakdown", "tools_needed"):
+                val = resources.get(key)
+                if isinstance(val, str):
+                    resources[key] = [item.strip() for item in val.split(",") if item.strip()]
+
+        # Normalize timeline list fields
+        timeline = plan.get("timeline")
+        if isinstance(timeline, dict):
+            for key, val in timeline.items():
+                if isinstance(val, str):
+                    timeline[key] = [item.strip() for item in val.split(",") if item.strip()]
+
+        return plan
+
     def _enhance_execution_plan(
         self,
         plan: Dict[str, Any],
@@ -311,7 +336,10 @@ class Executor:
         channels: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
         """Enhance execution plan with structured data"""
-        
+
+        # Fix any string fields that should be lists before applying defaults
+        plan = self._normalize_list_fields(plan)
+
         # Ensure timeline has proper structure
         if not plan.get("timeline"):
             plan["timeline"] = self._create_default_timeline(duration)
