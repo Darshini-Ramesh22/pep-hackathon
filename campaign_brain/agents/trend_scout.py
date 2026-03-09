@@ -53,7 +53,7 @@ class TrendScout:
         """
         
         # Load trend prompt
-        with open("prompts/trend_prompt.txt", "r") as f:
+        with open("campaign_brain/prompts/trend_prompt.txt", "r") as f:
             prompt_template = f.read()
             
         # Prepare the prompt
@@ -96,7 +96,7 @@ class TrendScout:
             
             # Parse the response
             analysis_text = response.choices[0].message.content
-            with open("logs/trend_scout_response.txt", "w") as f:
+            with open("campaign_brain/logs/trend_scout_response.txt", "w") as f:
                 f.write(analysis_text)
             
             # Extract structured data

@@ -106,7 +106,7 @@ class Strategist:
             
             # Extract structured strategy
             strategy = self._parse_strategy(strategy_text, budget, duration)
-            with open("logs/strategist_response.txt", "w") as f:
+            with open("campaign_brain/logs/strategist_response.txt", "w") as f:
                 f.write(strategy_text)
             
             return strategy

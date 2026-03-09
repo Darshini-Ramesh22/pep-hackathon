@@ -93,7 +93,7 @@ class PersonaSimulator:
             
             # Extract structured personas
             personas = self._parse_personas(persona_text)
-            with open("logs/persona_simulator_response.txt", "w") as f:
+            with open("campaign_brain/logs/persona_simulator_response.txt", "w") as f:
                 f.write(persona_text)
             
             return personas

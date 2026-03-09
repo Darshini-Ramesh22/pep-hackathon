@@ -99,7 +99,7 @@ class Designer:
             
             # Extract structured creative output
             creative_output = self._parse_creative_concepts(creative_text, channels)
-            with open("logs/designer_response.txt", "w") as f:
+            with open("campaign_brain/logs/designer_response.txt", "w") as f:
                 f.write(creative_text)
             
             return creative_output
